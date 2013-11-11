@@ -1,0 +1,9 @@
+<style>
+	#nette-debug .nette-panel pre { white-space: pre; font-family: monospace; }
+</style>
+<h1>Database info</h1>
+<table>
+	<?php foreach($this->databaseParams as $key => $val) { ?>
+	<tr><th><?= htmlspecialchars($key); ?></th><td><pre><?= htmlspecialchars($val); ?></pre></td></tr>
+	<?php } ?>
+</table>
