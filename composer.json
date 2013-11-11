@@ -1,0 +1,18 @@
+{
+	"name": "pd/databse-info-panel",
+	"type": "library",
+	"description": "Panel for Nette Debug bar which quickly tells you which database you use",
+	"keywords": ["nette", "debugbar"],
+	"homepage": "http://peckadesign.cz",
+	"license": ["MIT"],
+	"authors": [
+		{
+			"name": "Milan Pála",
+			"homepage": "http://milanpala.cz"
+		}
+	],
+	"version": "1.0.0",
+	"require": {
+		"nette/nette": "@dev"
+	}
+}
