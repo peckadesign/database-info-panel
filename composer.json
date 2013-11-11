@@ -1,9 +1,9 @@
 {
-	"name": "pd/databse-info-panel",
+	"name": "pd/database-info-panel",
 	"type": "library",
 	"description": "Panel for Nette Debug bar which quickly tells you which database you use",
 	"keywords": ["nette", "debugbar"],
-	"homepage": "https://github.com/peckadesign/db-info-panel",
+	"homepage": "https://github.com/peckadesign/database-info-panel",
 	"license": ["MIT"],
 	"authors": [
 		{
