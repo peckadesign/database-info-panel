@@ -5,19 +5,19 @@ Panel for Nette Debug bar which quickly tells you which database you use.
 ## Setup
 
 ```
-	parameters:
-		database:
-			host: 192.168.0.1
-			dbname: databasename
-			user: username
-			password: abcdef
+parameters:
+	database:
+		host: 192.168.0.1
+		dbname: databasename
+		user: username
+		password: abcdef
 
-	services:
-		databaseInfoPanel:
-			class: Pd\Diagnostics\DatabaseInfoPanel(%database%)
+services:
+	databaseInfoPanel:
+		class: Pd\Diagnostics\DatabaseInfoPanel(%database%)
 
-	nette:
-		debugger:
-			bar:
-				- @databaseInfoPanel
+nette:
+	debugger:
+		bar:
+			- @databaseInfoPanel
 ```

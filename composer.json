@@ -3,9 +3,13 @@
 	"type": "library",
 	"description": "Panel for Nette Debug bar which quickly tells you which database you use",
 	"keywords": ["nette", "debugbar"],
-	"homepage": "http://peckadesign.cz",
+	"homepage": "https://github.com/peckadesign/db-info-panel",
 	"license": ["MIT"],
 	"authors": [
+		{
+			"name": "PeckaDesign",
+			"homepage": "http://peckadesign.cz/"
+		},
 		{
 			"name": "Milan Pála",
 			"homepage": "http://milanpala.cz"
@@ -13,6 +17,11 @@
 	],
 	"version": "1.0.0",
 	"require": {
-		"nette/nette": "@dev"
+		"nette/nette": "2.*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Pd\\Diagnostics\\": "src/"
+		}
 	}
 }
