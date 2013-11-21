@@ -56,3 +56,35 @@ services:
 	databaseInfoPanel:
 		class: Pd\Diagnostics\DatabaseInfoPanel(%database%, 'myDbNameKey')
 ```
+
+### Change CSS style of DB name label
+
+```php
+class MyDatabaseInfoPanelStyleHandler implements Pd\Diagnostics\IDatabaseInfoPanelStyleHandler
+{
+	private $colors = array('db' => '#F30', 'db_staging' => '#F60', 'db_dev' => '#060', 'db_local' => '#00C');
+
+	public function getStyle($databaseName, $params)
+	{
+		$style = array();
+		if(array_key_exists($databaseName, $this->colors)) {
+			$style[] = 'color: '.$this->colors[$databaseName];
+		}
+		if($databaseName === 'db') $style[] = 'font-weight: bold'; // production mode
+		return implode('; ', $style);
+	}
+
+}
+```
+
+```
+nette:
+	services:
+		databaseInfoPanelStyleHandler: MyDatabaseInfoPanelStyleHandler
+
+	debugger:
+		bar:
+			- Pd\Diagnostics\DatabaseInfoPanel(%database%)
+```
+
+![Screenshot](doc/custom-color-production.png)
