@@ -15,7 +15,7 @@
 			"homepage": "http://milanpala.cz"
 		}
 	],
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"require": {
 		"nette/nette": "2.*"
 	},
