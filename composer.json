@@ -2,7 +2,7 @@
 	"name": "pd/database-info-panel",
 	"type": "library",
 	"description": "Panel for Nette Debug bar which quickly tells you which database you use",
-	"keywords": ["nette", "debugbar"],
+	"keywords": ["tracy", "debugbar"],
 	"homepage": "https://github.com/peckadesign/database-info-panel",
 	"license": ["MIT"],
 	"authors": [
@@ -16,7 +16,7 @@
 		}
 	],
 	"require": {
-		"nette/nette": "2.*"
+		"tracy/tracy": "2.*"
 	},
 	"autoload": {
 		"psr-0": {
