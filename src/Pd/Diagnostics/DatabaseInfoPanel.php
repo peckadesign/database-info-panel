@@ -2,13 +2,13 @@
 
 namespace Pd\Diagnostics;
 
-use Nette;
+use Tracy;
 
 
 /**
  * Provides info about current database
  */
-class DatabaseInfoPanel implements Nette\Diagnostics\IBarPanel
+class DatabaseInfoPanel implements Tracy\IBarPanel
 {
 	/** @var string[] $databaseParams [{key => val}] */
 	private $databaseParams;
