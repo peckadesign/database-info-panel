@@ -16,13 +16,13 @@ class DatabaseInfoPanel implements Tracy\IBarPanel
 	/** @var string[] */
 	private $possibleDbNameKeys = array('dbname', 'database');
 
-	/** @var IDatabaseInfoPanelStyleHandler */
+	/** @var IDatabaseInfoPanelStyleHandler|NULL */
 	private $styleCallback;
 
 	/**
 	 * @param string[] $databaseParams All database parameters in [{key => val}] format
 	 * @param string|NULL $customDbNameKey Custom key of DB name value
-	 * @param IDatabaseInfoPanelStyleHandler Handler with formating of DB name label in panel
+	 * @param IDatabaseInfoPanelStyleHandler $styleCallback Handler with formating of DB name label in panel
 	 */
 	public function __construct(array $databaseParams, $customDbNameKey = NULL, IDatabaseInfoPanelStyleHandler $styleCallback = NULL)
 	{
