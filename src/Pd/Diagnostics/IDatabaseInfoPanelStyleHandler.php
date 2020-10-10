@@ -10,9 +10,9 @@ namespace Pd\Diagnostics;
 interface IDatabaseInfoPanelStyleHandler
 {
 	/**
-	 * @var string $databaseName Database name
-	 * @var string[] $databaseParams All database parameters
+	 * @param string $databaseName Database name
+	 * @param array<string, string> $databaseParams All database parameters
 	 * @return string Content of DB name label style atribut
 	 */
-	public function getStyle($databaseName, $databaseParams);
+	public function getStyle(string $databaseName, array $databaseParams): string;
 }

@@ -10,21 +10,20 @@ use Tracy;
  */
 class DatabaseInfoPanel implements Tracy\IBarPanel
 {
-	/** @var string[] $databaseParams [{key => val}] */
-	private $databaseParams;
+	/** @var array<string, string> */
+	private array $databaseParams;
 
-	/** @var string[] */
-	private $possibleDbNameKeys = array('dbname', 'database');
+	/** @var array<string> */
+	private array $possibleDbNameKeys = ['dbname', 'database'];
 
-	/** @var IDatabaseInfoPanelStyleHandler|NULL */
-	private $styleCallback;
+	private ?IDatabaseInfoPanelStyleHandler$styleCallback;
 
 	/**
-	 * @param string[] $databaseParams All database parameters in [{key => val}] format
-	 * @param string|NULL $customDbNameKey Custom key of DB name value
-	 * @param IDatabaseInfoPanelStyleHandler $styleCallback Handler with formating of DB name label in panel
+	 * @param array<string, string> $databaseParams All database parameters in [{key => val}] format
+	 * @param string|null $customDbNameKey Custom key of DB name value
+	 * @param IDatabaseInfoPanelStyleHandler|null $styleCallback Handler with formating of DB name label in panel
 	 */
-	public function __construct(array $databaseParams, $customDbNameKey = NULL, IDatabaseInfoPanelStyleHandler $styleCallback = NULL)
+	public function __construct(array $databaseParams, ?string $customDbNameKey = NULL, ?IDatabaseInfoPanelStyleHandler $styleCallback = NULL)
 	{
 		$this->setDatabaseParams($databaseParams);
 
@@ -34,14 +33,17 @@ class DatabaseInfoPanel implements Tracy\IBarPanel
 	}
 
 
-	private function setDatabaseParams(array $databaseParams)
+	/**
+	 * @param array<string, string> $databaseParams
+	 */
+	private function setDatabaseParams(array $databaseParams): void
 	{
 		if (array_key_exists('password', $databaseParams)) unset($databaseParams['password']);
 		$this->databaseParams = $databaseParams;
 	}
 
 
-	private function getDatabaseName()
+	private function getDatabaseName(): string
 	{
 		foreach ($this->possibleDbNameKeys as $key) {
 			if (array_key_exists($key, $this->databaseParams)) return $this->databaseParams[$key];
@@ -50,7 +52,7 @@ class DatabaseInfoPanel implements Tracy\IBarPanel
 	}
 
 
-	public function getTab()
+	public function getTab(): string
 	{
 		if ($this->styleCallback) $style = ' style="' . $this->styleCallback->getStyle($this->getDatabaseName(), $this->databaseParams) . '"';
 		else $style = '';
@@ -62,10 +64,11 @@ class DatabaseInfoPanel implements Tracy\IBarPanel
 	}
 
 
-	public function getPanel()
+	public function getPanel(): string
 	{
 		ob_start();
 		include __DIR__ . '/DatabaseInfoPanel.phtml';
-		return ob_get_clean();
+		return (string) ob_get_clean();
 	}
+
 }
