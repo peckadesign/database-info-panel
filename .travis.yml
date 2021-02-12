@@ -4,7 +4,7 @@ env:
     - PHP_VERSION=8.0-dev
 
 script:
-    - docker run --rm -it -v "$PWD":/var/www/html peckadesign/php:${PHP_VERSION} vendor/bin/phpstan analyse -l 7 src/
+    - docker run --rm -it -v "$PWD":/var/www/html peckadesign/php:${PHP_VERSION} vendor/bin/phpstan analyse -l 8 src/
 
 before_script:
     - docker run --rm -it -v "$PWD":/var/www/html peckadesign/php:${PHP_VERSION} composer install --no-interaction --prefer-dist
